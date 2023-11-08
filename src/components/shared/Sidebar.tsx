@@ -1,6 +1,13 @@
 import { FcLandscape } from 'react-icons/fc'
 import { DASHBOARD_SIDEBAR_LINKS } from '../../lib/consts/navigation'
 import { Link } from 'react-router-dom'
+
+interface SidebarLinkItem {
+    key: string;
+    path: string;
+    icon: React.ReactNode;
+    label: string;
+}
 export function Sidebar() {
     return (
         <div className="flex flex-col bg-neutral-900 w-60 p-3 text-white">
@@ -17,7 +24,7 @@ export function Sidebar() {
         </div>
     )
 }
-function SidebarLink({ item }) {
+function SidebarLink({ item }: { item: SidebarLinkItem }) {
     return (
         <Link to={item.path}>
             <span className='text-xl'>{item.icon}</span>
